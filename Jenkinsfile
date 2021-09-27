@@ -1,8 +1,6 @@
 pipeline {
     agent any
-
     stages {
-
         stage('build') {
             steps {
               bat '''
@@ -10,7 +8,6 @@ pipeline {
               '''
             }
         }
-
         stage('test') {
             steps {
               bat '''
@@ -18,15 +15,13 @@ pipeline {
               '''
             }
         }
-
         stage('deliver') {
             steps {
               echo 'Deploying...'
               bat '''
-                 git push https://git.heroku.com/rsvp-service-1.git HEAD:main -f
+                 git push https://git.heroku.com/rsvp-service-dan-mueller.git HEAD:main -f
               '''
             }
         }
-
     }
 }
